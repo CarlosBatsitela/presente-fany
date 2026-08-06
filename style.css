@@ -1,0 +1,75 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Corpo da página */
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #ff7eb3,
+        #ff758c,
+        #ffb199
+    );
+    overflow: hidden;
+}
+/* Esconde as primeiras telas */
+.oculto{
+    display: none;
+}
+/*tela inicial*/
+#inicio{
+    text-align: center;
+    color:white;
+}
+/* título */
+#inicio h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+/* Texto */
+#inicio p{
+    font-size:1.2rem;
+    margin-bottom:40px;
+}
+/* Botão */
+#abrirPresente{
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:ff4f87;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+/* Efeito do Botão */
+#abrirPresente:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px white;
+}
+.presenteEmoji{
+    font-size: 110px;
+    margin-bottom:25px;
+    animation: balancar 2s infinite;
+}
+@keyframes balancar{
+    0%{
+        transform:rotate(-10deg);
+    }
+    50%{
+        transform:rotate(10deg);
+    }
+    100%{
+        transform:rotate(-10deg);
+    }
+}
+
+
