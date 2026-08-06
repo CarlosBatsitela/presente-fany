@@ -1,75 +1,548 @@
-/* Reset */
+/* ========================= */
+/* RESET */
+/* ========================= */
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-/* Corpo da página */
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+
 body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(
-        135deg,
-        #ff7eb3,
-        #ff758c,
-        #ffb199
-    );
-    overflow: hidden;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb199);
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    overflow:hidden;
+
 }
-/* Esconde as primeiras telas */
-.oculto{
-    display: none;
-}
-/*tela inicial*/
+
+/* ========================= */
+/* TELA */
+/* ========================= */
+
 #inicio{
-    text-align: center;
+
+    text-align:center;
+
     color:white;
+
 }
-/* título */
-#inicio h1{
-    font-size: 3rem;
-    margin-bottom: 20px;
+
+/* ========================= */
+/* CAIXA */
+/* ========================= */
+
+.presente{
+
+    width:180px;
+
+    margin:0 auto 40px;
+
+    position:relative;
+
+    animation:balancar 2s infinite;
+
 }
-/* Texto */
-#inicio p{
-    font-size:1.2rem;
-    margin-bottom:40px;
-}
-/* Botão */
-#abrirPresente{
-    padding:18px 40px;
-    border:none;
+
+/* Laço */
+
+.laco{
+
+    width:60px;
+
+    height:30px;
+
+    background:#ff4c89;
+
     border-radius:50px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.laco::before{
+
+    content:"";
+
+    width:35px;
+
+    height:35px;
+
+    border:8px solid #ff4c89;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:-30px;
+
+    top:-8px;
+
+}
+
+.laco::after{
+
+    content:"";
+
+    width:35px;
+
+    height:35px;
+
+    border:8px solid #ff4c89;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    right:-30px;
+
+    top:-8px;
+
+}
+
+/* Tampa */
+
+.tampa{
+
+    width:180px;
+
+    height:35px;
+
+    background:#ff4c89;
+
+    border-radius:8px;
+
+    margin-top:8px;
+
+    position:relative;
+
+}
+
+/* Caixa */
+
+.caixa{
+
+    width:180px;
+
+    height:140px;
+
+    background:#ff77aa;
+
+    border-radius:0 0 10px 10px;
+
+    position:relative;
+
+}
+
+/* Fita vertical */
+
+.fitaVertical{
+
+    width:20px;
+
+    height:100%;
+
     background:white;
-    color:ff4f87;
+
+    margin:auto;
+
+}
+
+/* Fita horizontal */
+
+.fitaHorizontal{
+
+    width:100%;
+
+    height:20px;
+
+    background:white;
+
+    position:absolute;
+
+    top:60px;
+
+}
+
+/* ========================= */
+/* TEXTOS */
+/* ========================= */
+
+h1{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+p{
+
+    font-size:1.2rem;
+
+    margin-bottom:35px;
+
+}
+
+/* ========================= */
+/* BOTÃO */
+/* ========================= */
+
+button{
+
+    border:none;
+
+    padding:18px 40px;
+
+    border-radius:40px;
+
+    background:white;
+
+    color:#ff4c89;
+
     font-size:20px;
+
     font-weight:bold;
+
     cursor:pointer;
-    transition:0.3s;
+
+    transition:.3s;
+
 }
-/* Efeito do Botão */
-#abrirPresente:hover{
+
+button:hover{
+
     transform:scale(1.08);
-    box-shadow:0 0 25px white;
+
+    box-shadow:0 0 20px white;
+
 }
-.presenteEmoji{
-    font-size: 110px;
-    margin-bottom:25px;
-    animation: balancar 2s infinite;
-}
+
+/* ========================= */
+/* ANIMAÇÃO */
+/* ========================= */
+
 @keyframes balancar{
+
     0%{
-        transform:rotate(-10deg);
+
+        transform:rotate(-8deg);
+
     }
+
     50%{
-        transform:rotate(10deg);
+
+        transform:rotate(8deg);
+
     }
+
     100%{
-        transform:rotate(-10deg);
+
+        transform:rotate(-8deg);
+
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:600px){
+
+    h1{
+
+        font-size:2.2rem;
+
+    }
+
+    p{
+
+        font-size:1rem;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
+
+.oculto{
+    display:none;
+}
+
+#presente{
+    text-align:center;
+}
+
+.presente-aberto{
+    animation: aparecer 1s ease;
+}
+
+.caixa-aberta{
+    width:180px;
+    height:140px;
+    background:#ff77aa;
+    border-radius:0 0 15px 15px;
+    margin:auto;
+    font-size:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.tampa-aberta{
+    width:200px;
+    height:35px;
+    background:#ff4c89;
+    margin:auto;
+    border-radius:10px;
+    animation: subirTampa 1s forwards;
+}
+
+@keyframes subirTampa{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-50px) rotate(-10deg);
     }
 }
 
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
+/* ========================= */
+/* CARTA */
+/* ========================= */
+
+#carta{
+
+    text-align:center;
+
+}
+
+
+.papel{
+
+    width:380px;
+
+    min-height:420px;
+
+    background:#fff8ee;
+
+    padding:40px;
+
+    border-radius:10px;
+
+    color:#8b3a62;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.25);
+
+    position:relative;
+
+    animation:abrirCarta 1.2s ease;
+
+}
+
+
+/* detalhe do papel */
+
+.papel::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    right:15px;
+
+    bottom:15px;
+
+    border:2px dashed #ffb6c9;
+
+    border-radius:8px;
+
+}
+
+
+.papel h2{
+
+    color:#ff4c89;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+    position:relative;
+
+}
+
+
+.papel p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    position:relative;
+
+}
+
+
+/* animação da carta */
+
+@keyframes abrirCarta{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.5) rotateX(90deg);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1) rotateX(0);
+
+    }
+
+}
+
+/* ========================= */
+/* ALBUM DE FOTOS */
+/* ========================= */
+
+#fotos{
+
+    text-align:center;
+
+}
+
+
+.album{
+
+    animation:abrirAlbum 1s ease;
+
+}
+
+
+.album h2{
+
+    color:white;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+}
+
+
+.album img{
+
+    width:350px;
+
+    height:350px;
+
+    object-fit:cover;
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    animation:trocarFoto .6s ease;
+
+}
+
+
+
+#proximaFoto{
+
+    margin-top:30px;
+
+}
+
+
+
+@keyframes abrirAlbum{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes trocarFoto{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}

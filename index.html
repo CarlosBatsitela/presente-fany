@@ -13,9 +13,17 @@
 
     <!--Tela Inicial -->
     <section id="inicio">
-        <div class="presenteEmoji">
-            🎁
+        <div class="presente">
+            <div class="laco"></div>
+            <div class="tampa"></div>
+            <div class="fitaVertical"></div>
         </div>
+
+        <div class="caixa">
+            <div class="fitaVertical"></div>
+            <div class="fitaHorizontal"></div>
+        </div>
+    
         <h1>Feliz Aniversário❤️</h1>
         <p> Preparei uma surpresa feita com muito carinho!</p>
         <button id="abrirPresente">
@@ -25,22 +33,33 @@
 
     <!-- Caixa de Presente -->
      <section id="presente" class="oculto">
-        <div class="caixa">
-            🎁
-        </div>
+        <div class="presente-aberto">
+            <div class="tampa-aberta"></div>
+            <div class="caixa-aberta">
+                🎁
+            </div>
+        <button id="abrirCarta">
+            Abrir Carta 💌
+        </button>
      </section>
 
      <!-- Carta -->
       <section id="carta" class="oculto">
         <div class="papel">
-            <h2>Para você ❤️</h2>
+            <h2>Para meu amor 💌</h2>
             <p id="textoCarta"></p>
         </div>
       </section>
 
       <!-- Fotos -->
        <section id="fotos" class="oculto">
-        <img src="imagens/foto1.jpg" id="fotoAtual" alt="Foto do casal">
+        <div class="album">
+            <h2>Nossos momentos ❤️</h2>
+            <img src="imagem/foto1.jpg" id="fotoAtual" alt="Foto do casal">
+            <button id="proximaFoto">
+                 próxima foto ➡️
+            </button>
+        </div>
        </section>
 
        <!-- Contador -->
@@ -55,6 +74,14 @@
             <p> Feliz aniversário, meu amor!</p> 
          </section>
          
-         <script src="script.js"></script>     
+<audio id="musica" loop>
+    
+    <source src="audio/musica.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<script src="script.js"></script>   
+
 </body>
 </html>
