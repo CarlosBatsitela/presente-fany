@@ -1,274 +1,476 @@
-/* ========================= */
-/* RESET */
-/* ========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-/* ========================= */
-/* BODY */
-/* ========================= */
-
 body{
-
-    height:100vh;
-
+    min-height:100vh;
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
+    flex-direction:column;
     background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb199);
-
-    font-family:Arial, Helvetica, sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     overflow:hidden;
-
-}
-
-/* ========================= */
-/* TELA */
-/* ========================= */
-
-#inicio{
-
-    text-align:center;
-
-    color:white;
-
-}
-
-/* ========================= */
-/* CAIXA */
-/* ========================= */
-
-.presente{
-
-    width:180px;
-
-    margin:0 auto 40px;
-
     position:relative;
-
-    animation:balancar 2s infinite;
-
 }
 
-/* Laço */
-
-.laco{
-
-    width:60px;
-
-    height:30px;
-
-    background:#ff4c89;
-
-    border-radius:50px;
-
-    margin:auto;
-
-    position:relative;
-
-}
-
-.laco::before{
-
-    content:"";
-
-    width:35px;
-
-    height:35px;
-
-    border:8px solid #ff4c89;
-
-    border-radius:50%;
-
-    position:absolute;
-
-    left:-30px;
-
-    top:-8px;
-
-}
-
-.laco::after{
-
-    content:"";
-
-    width:35px;
-
-    height:35px;
-
-    border:8px solid #ff4c89;
-
-    border-radius:50%;
-
-    position:absolute;
-
-    right:-30px;
-
-    top:-8px;
-
-}
-
-/* Tampa */
-
-.tampa{
-
-    width:180px;
-
-    height:35px;
-
-    background:#ff4c89;
-
-    border-radius:8px;
-
-    margin-top:8px;
-
-    position:relative;
-
-}
-
-/* Caixa */
-
-.caixa{
-
-    width:180px;
-
-    height:140px;
-
-    background:#ff77aa;
-
-    border-radius:0 0 10px 10px;
-
-    position:relative;
-
-}
-
-/* Fita vertical */
-
-.fitaVertical{
-
-    width:20px;
-
-    height:100%;
-
-    background:white;
-
-    margin:auto;
-
-}
-
-/* Fita horizontal */
-
-.fitaHorizontal{
-
+section{
     width:100%;
-
-    height:20px;
-
-    background:white;
-
-    position:absolute;
-
-    top:60px;
-
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+    text-align:center;
+    color:#fff;
+    animation:fade .8s ease;
 }
 
-/* ========================= */
-/* TEXTOS */
-/* ========================= */
+.oculto{
+    display:none;
+}
 
 h1{
-
     font-size:3rem;
-
     margin-bottom:20px;
+    text-shadow:0 4px 10px rgba(0,0,0,.2);
+}
 
+h2{
+    font-size:2rem;
+    margin-bottom:20px;
 }
 
 p{
-
     font-size:1.2rem;
-
-    margin-bottom:35px;
-
+    line-height:1.7;
 }
 
-/* ========================= */
-/* BOTÃO */
-/* ========================= */
-
 button{
-
+    margin-top:30px;
     border:none;
-
-    padding:18px 40px;
-
+    padding:16px 40px;
     border-radius:40px;
-
-    background:white;
-
+    background:#fff;
     color:#ff4c89;
-
-    font-size:20px;
-
+    font-size:18px;
     font-weight:bold;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 button:hover{
-
     transform:scale(1.08);
+    box-shadow:0 10px 25px rgba(255,255,255,.45);
+}
 
-    box-shadow:0 0 20px white;
+.presente{
+    width:180px;
+    margin:0 auto 40px;
+    animation:balancar 2s infinite;
+}
+
+.laco{
+    width:60px;
+    height:30px;
+    background:#ff4c89;
+    border-radius:50px;
+    margin:auto;
+    position:relative;
+}
+
+.laco::before{
+    content:"";
+    width:35px;
+    height:35px;
+    border:8px solid #ff4c89;
+    border-radius:50%;
+    position:absolute;
+    left:-30px;
+    top:-8px;
+}
+
+.laco::after{
+    content:"";
+    width:35px;
+    height:35px;
+    border:8px solid #ff4c89;
+    border-radius:50%;
+    position:absolute;
+    right:-30px;
+    top:-8px;
+}
+
+.tampa{
+    width:180px;
+    height:35px;
+    background:#ff4c89;
+    border-radius:8px;
+    margin-top:8px;
+}
+
+.caixa{
+    width:180px;
+    height:140px;
+    background:#ff77aa;
+    border-radius:0 0 12px 12px;
+    position:relative;
+}
+
+.fitaVertical{
+    width:20px;
+    height:100%;
+    background:#fff;
+    margin:auto;
+}
+
+.fitaHorizontal{
+    width:100%;
+    height:20px;
+    background:#fff;
+    position:absolute;
+    top:60px;
+}
+
+.presente-aberto{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation:fade .8s ease;
+}
+
+.tampa-aberta{
+    width:200px;
+    height:35px;
+    background:#ff4c89;
+    border-radius:10px;
+    margin-bottom:8px;
+    animation:abrirTampa 1s forwards;
+}
+
+.caixa-aberta{
+    width:180px;
+    height:140px;
+    background:#ff77aa;
+    border-radius:0 0 12px 12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+}
+
+.papel{
+
+    max-width:700px;
+    width:90%;
+    margin:auto;
+
+    background:
+    linear-gradient(135deg,#fffdf5,#fff5dc);
+
+    color:#444;
+
+    padding:50px 45px;
+
+    border-radius:8px;
+
+    position:relative;
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.35);
+
+    animation:subirCarta 1s ease;
+
+    border:1px solid rgba(180,150,100,.3);
 
 }
 
-/* ========================= */
-/* ANIMAÇÃO */
-/* ========================= */
+.papel::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:1px dashed rgba(255,76,137,.35);
+
+    pointer-events:none;
+
+}
+
+
+.papel::after{
+
+    content:"❤️";
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:25px;
+
+}
+
+.papel h2{
+    color:#ff4c89;
+}
+
+.papel p{
+
+    color:#555;
+
+    font-size:1.25rem;
+
+    line-height:1.8;
+
+    font-family:Georgia,serif;
+
+}
+
+.album{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.album img{
+    width:320px;
+    max-width:90%;
+    border-radius:18px;
+    border:8px solid #fff;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    animation:trocarFoto .8s ease;
+}
+
+#contador{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+#tempo{
+    margin-top:20px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    font-size:2rem;
+    font-weight:bold;
+    line-height:1.8;
+    min-width:320px;
+}
+
+#final{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.mensagemFinal{
+    max-width:700px;
+    padding:40px;
+}
+
+.mensagemFinal h1{
+    font-size:3.2rem;
+    margin-bottom:30px;
+}
+
+.mensagemFinal p{
+    font-size:1.4rem;
+    line-height:2;
+}
+
+#coracoes{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:999;
+}
+
+.coracao{
+    position:absolute;
+    bottom:-50px;
+    font-size:24px;
+    animation:subirCoracao linear forwards;
+}
 
 @keyframes balancar{
 
     0%{
-
         transform:rotate(-8deg);
-
     }
 
     50%{
-
         transform:rotate(8deg);
-
     }
 
     100%{
-
         transform:rotate(-8deg);
+    }
+
+}
+
+@keyframes abrirTampa{
+
+    from{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(-60px) rotate(-12deg);
+    }
+
+}
+
+@keyframes subirCarta{
+
+    from{
+        opacity:0;
+        transform:translateY(80px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes trocarFoto{
+
+    from{
+        opacity:0;
+        transform:scale(.92);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes subirCoracao{
+
+    0%{
+        transform:translateY(0) scale(.8);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) scale(1.4);
+        opacity:0;
+    }
+
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    h2{
+        font-size:1.7rem;
+    }
+
+    p{
+        font-size:1.05rem;
+    }
+
+    .papel{
+
+        width:92%;
+        padding:25px;
+
+    }
+
+    .album img{
+
+        width:90%;
+
+    }
+
+    #tempo{
+
+        min-width:0;
+        width:90%;
+        font-size:1.4rem;
+        padding:20px;
+
+    }
+
+    .mensagemFinal{
+
+        width:92%;
+        padding:20px;
+
+    }
+
+    .mensagemFinal h1{
+
+        font-size:2.3rem;
+
+    }
+
+    .mensagemFinal p{
+
+        font-size:1.15rem;
+        line-height:1.8;
+
+    }
+
+    button{
+
+        width:90%;
 
     }
 
 }
 
-/* ========================= */
-/* RESPONSIVO */
-/* ========================= */
+@media(max-width:480px){
 
-@media(max-width:600px){
+    .presente{
+
+        transform:scale(.85);
+
+    }
 
     h1{
 
-        font-size:2.2rem;
+        font-size:1.9rem;
+
+    }
+
+    h2{
+
+        font-size:1.5rem;
 
     }
 
@@ -278,271 +480,49 @@ button:hover{
 
     }
 
-    button{
+    #tempo{
 
-        width:100%;
+        font-size:1.2rem;
 
     }
 
 }
 
-.oculto{
-    display:none;
+#reiniciar{
+
+    margin-top:40px;
+
 }
 
-#presente{
-    text-align:center;
+
+.mensagemFinal{
+
+    animation: aparecerFinal 1.5s ease;
+
 }
 
-.presente-aberto{
-    animation: aparecer 1s ease;
-}
 
-.caixa-aberta{
-    width:180px;
-    height:140px;
-    background:#ff77aa;
-    border-radius:0 0 15px 15px;
-    margin:auto;
-    font-size:70px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+@keyframes aparecerFinal{
 
-.tampa-aberta{
-    width:200px;
-    height:35px;
-    background:#ff4c89;
-    margin:auto;
-    border-radius:10px;
-    animation: subirTampa 1s forwards;
-}
-
-@keyframes subirTampa{
     from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
         transform:translateY(0);
-    }
-    to{
-        transform:translateY(-50px) rotate(-10deg);
-    }
-}
-
-@keyframes aparecer{
-    from{
-        opacity:0;
-        transform:scale(.5);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-/* ========================= */
-/* CARTA */
-/* ========================= */
-
-#carta{
-
-    text-align:center;
-
-}
-
-
-.papel{
-
-    width:380px;
-
-    min-height:420px;
-
-    background:#fff8ee;
-
-    padding:40px;
-
-    border-radius:10px;
-
-    color:#8b3a62;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,0.25);
-
-    position:relative;
-
-    animation:abrirCarta 1.2s ease;
-
-}
-
-
-/* detalhe do papel */
-
-.papel::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:15px;
-
-    left:15px;
-
-    right:15px;
-
-    bottom:15px;
-
-    border:2px dashed #ffb6c9;
-
-    border-radius:8px;
-
-}
-
-
-.papel h2{
-
-    color:#ff4c89;
-
-    font-size:32px;
-
-    margin-bottom:30px;
-
-    position:relative;
-
-}
-
-
-.papel p{
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    position:relative;
-
-}
-
-
-/* animação da carta */
-
-@keyframes abrirCarta{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.5) rotateX(90deg);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1) rotateX(0);
 
     }
 
 }
 
-/* ========================= */
-/* ALBUM DE FOTOS */
-/* ========================= */
+.mensagemFinal p{
 
-#fotos{
-
-    text-align:center;
-
-}
-
-
-.album{
-
-    animation:abrirAlbum 1s ease;
-
-}
-
-
-.album h2{
-
-    color:white;
-
-    font-size:32px;
-
-    margin-bottom:30px;
-
-}
-
-
-.album img{
-
-    width:350px;
-
-    height:350px;
-
-    object-fit:cover;
-
-    background:white;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-    animation:trocarFoto .6s ease;
-
-}
-
-
-
-#proximaFoto{
-
-    margin-top:30px;
-
-}
-
-
-
-@keyframes abrirAlbum{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.7);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-
-@keyframes trocarFoto{
-
-    from{
-
-        opacity:0;
-
-        transform:translateX(40px);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:translateX(0);
-
-    }
+    transition:1s;
 
 }

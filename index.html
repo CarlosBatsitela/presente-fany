@@ -1,87 +1,132 @@
-<!DOCTYPE html> 
-<html lang="pt-Br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Aniversário❤️</title>
+    <title>Feliz Aniversário ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!--Tela Inicial -->
     <section id="inicio">
+
         <div class="presente">
+
             <div class="laco"></div>
+
             <div class="tampa"></div>
-            <div class="fitaVertical"></div>
+
+            <div class="caixa">
+                <div class="fitaVertical"></div>
+                <div class="fitaHorizontal"></div>
+            </div>
+
         </div>
 
-        <div class="caixa">
-            <div class="fitaVertical"></div>
-            <div class="fitaHorizontal"></div>
-        </div>
-    
-        <h1>Feliz Aniversário❤️</h1>
-        <p> Preparei uma surpresa feita com muito carinho!</p>
+        <h1>Feliz Aniversário ❤️</h1>
+
+        <p>Preparei uma surpresa feita com muito carinho.</p>
+
         <button id="abrirPresente">
             Abrir Presente 🎁
         </button>
+
     </section>
 
-    <!-- Caixa de Presente -->
-     <section id="presente" class="oculto">
+    <section id="presente" class="oculto">
+
         <div class="presente-aberto">
+
             <div class="tampa-aberta"></div>
+
             <div class="caixa-aberta">
-                🎁
+                💌
             </div>
-        <button id="abrirCarta">
-            Abrir Carta 💌
-        </button>
-     </section>
 
-     <!-- Carta -->
-      <section id="carta" class="oculto">
-        <div class="papel">
-            <h2>Para meu amor 💌</h2>
-            <p id="textoCarta"></p>
-        </div>
-      </section>
-
-      <!-- Fotos -->
-       <section id="fotos" class="oculto">
-        <div class="album">
-            <h2>Nossos momentos ❤️</h2>
-            <img src="imagem/foto1.jpg" id="fotoAtual" alt="Foto do casal">
-            <button id="proximaFoto">
-                 próxima foto ➡️
+            <button id="abrirCarta">
+                Abrir Carta 💌
             </button>
+
         </div>
-       </section>
 
-       <!-- Contador -->
-        <section id="contador" class="oculto">
-            <h2>Estamos juntos há</h2>
-            <div id="tempo"></div>
-        </section>
+    </section>
 
-        <!-- Tela Final -->
-         <section id="final" class="oculto">
-            <h1>Eu te amo ❤️</h1>
-            <p> Feliz aniversário, meu amor!</p> 
-         </section>
-         
-<audio id="musica" loop>
-    
-    <source src="audio/musica.mp3" type="audio/mpeg">
+    <section id="carta" class="oculto">
 
-</audio>
+        <div class="papel">
 
+            <h2>Para você ❤️</h2>
 
-<script src="script.js"></script>   
+            <p id="textoCarta"></p>
+
+        </div>
+
+    </section>
+
+    <section id="fotos" class="oculto">
+
+        <div class="album">
+
+            <h2>Nossos Momentos ❤️</h2>
+
+        <img
+            id="fotoAtual"
+            src="imagem/foto1.jpg"
+            alt="Nossa Foto">
+
+        <button id="proximaFoto">
+            Próxima Foto ❤️
+        </button>
+
+    </div>
+
+</section>
+
+    <section id="contador" class="oculto">
+
+        <h2>Estamos juntos há</h2>
+
+        <div id="tempo"></div>
+
+    </section>
+
+    <section id="final" class="oculto">
+
+    <div class="mensagemFinal">
+
+        <h1>Eu Te Amo ❤️</h1>
+
+        <p id="textoFinal">
+
+            Obrigado por fazer parte da minha vida.<br></br>
+
+            Você transformou meus dias em algo muito mais feliz.<br></br>
+
+            Espero que goste deste pequeno presente e que consiga mostrar um pedacinho do do meu amor por você.<br><br>
+
+            Feliz aniversário, AMOR. ❤️
+
+        </p>
+
+        <button id="reiniciar">
+            Recomeçar ❤️
+        </button>
+
+    </div>
+
+</section>
+
+    <div id="coracoes"></div>
+
+    <audio id="musica" loop>
+        <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
