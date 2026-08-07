@@ -18,6 +18,8 @@ const final = document.getElementById("final");
 const coracoes = document.getElementById("coracoes");
 
 
+// ABRIR PRESENTE
+
 abrirPresente.addEventListener("click", () => {
 
     document.getElementById("inicio").classList.add("oculto");
@@ -27,12 +29,13 @@ abrirPresente.addEventListener("click", () => {
 });
 
 
+// ABRIR CARTA
+
 abrirCarta.addEventListener("click", () => {
 
     presente.classList.add("oculto");
 
     carta.classList.remove("oculto");
-
 
     document.getElementById("textoCarta").innerHTML = `
 
@@ -56,21 +59,20 @@ abrirCarta.addEventListener("click", () => {
 
         fotos.classList.remove("oculto");
 
-    },10000);
+    }, 10000);
 
 });
 
 
-let foto = 1;
+// FOTOS
 
+let foto = 1;
 
 proximaFoto.addEventListener("click", () => {
 
-
     foto++;
 
-
-    if(foto > 4){
+    if (foto > 4) {
 
         fotos.classList.add("oculto");
 
@@ -82,40 +84,36 @@ proximaFoto.addEventListener("click", () => {
 
     }
 
-
     fotoAtual.src = `imagem/foto${foto}.jpg`;
 
 });
 
 
+// CONTADOR
 
-function iniciarContador(){
-
+function iniciarContador() {
 
     const inicioNamoro = new Date("2023-09-04T19:00:00");
 
-
-    const contadorAtual = setInterval(()=>{
-
+    const contadorAtual = setInterval(() => {
 
         const agora = new Date();
-
 
         const diferenca = agora - inicioNamoro;
 
 
         const dias = Math.floor(
-            diferenca / (1000*60*60*24)
+            diferenca / (1000 * 60 * 60 * 24)
         );
 
 
         const horas = Math.floor(
-            (diferenca / (1000*60*60)) % 24
+            (diferenca / (1000 * 60 * 60)) % 24
         );
 
 
         const minutos = Math.floor(
-            (diferenca / (1000*60)) % 60
+            (diferenca / (1000 * 60)) % 60
         );
 
 
@@ -126,48 +124,41 @@ function iniciarContador(){
 
         tempo.innerHTML = `
 
-        ${dias} dias ❤️ <br>
+        ${dias} dias ❤️<br>
 
-        ${horas} horas
+        ${horas} horas<br>
 
-        ${minutos} minutos
+        ${minutos} minutos<br>
 
         ${segundos} segundos
 
         `;
 
-
-    },1000);
-
+    }, 1000);
 
 
-    setTimeout(()=>{
+    // DEPOIS DE 8 SEGUNDOS VAI PARA A TELA FINAL
 
+    setTimeout(() => {
 
-    clearInterval(contadorAtual);
+        clearInterval(contadorAtual);
 
+        contador.style.display = "none";
 
-    contador.style.display = "none";
+        final.style.display = "flex";
 
+        escreverFinal();
 
-    final.style.display = "flex";
+        iniciarCoracoes();
 
-
-    escreverFinal();
-
-
-    iniciarCoracoes();
-
-
-},8000);
-
+    }, 8000);
 
 }
 
 
+// TEXTO FINAL
 
-
-function escreverFinal(){
+function escreverFinal() {
 
     const titulo = document.querySelector(".mensagemFinal h1");
 
@@ -178,44 +169,14 @@ function escreverFinal(){
     let i = 0;
 
 
-    const escrever = setInterval(()=>{
+    const escrever = setInterval(() => {
 
         titulo.innerHTML += texto[i];
 
         i++;
 
 
-        if(i >= texto.length){
-
-            clearInterval(escrever);
-
-            escreverMensagem();
-
-        }
-
-    },200);
-
-}
-
-function escreverFinal(){
-
-    const titulo = document.querySelector(".mensagemFinal h1");
-
-    const texto = "Eu Te Amo ❤️";
-
-    titulo.innerHTML = "";
-
-    let i = 0;
-
-
-    const escrever = setInterval(()=>{
-
-        titulo.innerHTML += texto[i];
-
-        i++;
-
-
-        if(i >= texto.length){
+        if (i >= texto.length) {
 
             clearInterval(escrever);
 
@@ -223,11 +184,14 @@ function escreverFinal(){
 
         }
 
-    },200);
+    }, 200);
 
 }
 
-function animarMensagem(){
+
+// ANIMAÇÃO DA MENSAGEM FINAL
+
+function animarMensagem() {
 
     const mensagem = document.querySelector(".mensagemFinal p");
 
@@ -236,7 +200,7 @@ function animarMensagem(){
     mensagem.style.transform = "translateY(30px)";
 
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         mensagem.style.transition = "1s";
 
@@ -244,76 +208,51 @@ function animarMensagem(){
 
         mensagem.style.transform = "translateY(0)";
 
-
-    },500);
+    }, 500);
 
 }
 
 
-function iniciarCoracoes(){
+// CORAÇÕES
 
+function iniciarCoracoes() {
 
-    setInterval(()=>{
-
+    setInterval(() => {
 
         const coracao = document.createElement("span");
 
-
         coracao.innerHTML = "❤️";
-
 
         coracao.classList.add("coracao");
 
 
         coracao.style.left =
-        Math.random()*100+"vw";
+            Math.random() * 100 + "vw";
 
 
         coracao.style.animationDuration =
-        (Math.random()*3+3)+"s";
+            (Math.random() * 3 + 3) + "s";
 
 
         coracoes.appendChild(coracao);
 
 
-
-        setTimeout(()=>{
-
+        setTimeout(() => {
 
             coracao.remove();
 
-
-        },6000);
-
+        }, 6000);
 
 
-    },300);
-
+    }, 300);
 
 }
 
-reiniciar.addEventListener("click",()=>{
+
+// BOTÃO RECOMEÇAR
+
+reiniciar.addEventListener("click", () => {
 
     location.reload();
 
 });
-
-setTimeout(()=>{
-
-    clearInterval(contadorAtual);
-
-    contador.style.display = "none";
-
-    final.style.display = "flex";
-
-    escreverFinal();
-
-    setTimeout(()=>{
-
-        iniciarCoracoes();
-
-    },3000);
-
-
-},15000);
-
