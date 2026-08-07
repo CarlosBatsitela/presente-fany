@@ -17,16 +17,12 @@ const tempo = document.getElementById("tempo");
 const final = document.getElementById("final");
 const coracoes = document.getElementById("coracoes");
 
-const musica = document.getElementById("musica");
-
 
 abrirPresente.addEventListener("click", () => {
 
     document.getElementById("inicio").classList.add("oculto");
 
     presente.classList.remove("oculto");
-
-    musica.play();
 
 });
 
@@ -40,13 +36,14 @@ abrirCarta.addEventListener("click", () => {
 
     document.getElementById("textoCarta").innerHTML = `
 
-    Vida ...
+    Vida ❤️<br><br>
 
-    Hoje é um dia muito especial, porque é o dia da pessoa mais incrível e especial do mundo pra mim.
+    Hoje é um dia muito especial,<br>
+    porque é o dia da pessoa mais incrível e especial do mundo pra mim.<br><br>
 
-    Tentei fazer esse simples presente para mostrar um pouco do amor que sinto por você.
+    Tentei fazer esse simples presente para mostrar um pouco do amor que sinto por você.<br><br>
 
-    Espero que você goste.
+    Espero que você goste.<br><br>
 
     Eu Te Amo Thiff ❤️
 
@@ -319,3 +316,4 @@ setTimeout(()=>{
 
 
 },15000);
+
