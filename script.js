@@ -17,9 +17,6 @@ const tempo = document.getElementById("tempo");
 const final = document.getElementById("final");
 const coracoes = document.getElementById("coracoes");
 
-
-// ABRIR PRESENTE
-
 abrirPresente.addEventListener("click", () => {
 
     document.getElementById("inicio").classList.add("oculto");
@@ -27,9 +24,6 @@ abrirPresente.addEventListener("click", () => {
     presente.classList.remove("oculto");
 
 });
-
-
-// ABRIR CARTA
 
 abrirCarta.addEventListener("click", () => {
 
@@ -52,7 +46,6 @@ abrirCarta.addEventListener("click", () => {
 
     `;
 
-
     setTimeout(() => {
 
         carta.classList.add("oculto");
@@ -62,9 +55,6 @@ abrirCarta.addEventListener("click", () => {
     }, 10000);
 
 });
-
-
-// FOTOS
 
 let foto = 1;
 
@@ -88,9 +78,6 @@ proximaFoto.addEventListener("click", () => {
 
 });
 
-
-// CONTADOR
-
 function iniciarContador() {
 
     const inicioNamoro = new Date("2023-09-04T19:00:00");
@@ -101,26 +88,21 @@ function iniciarContador() {
 
         const diferenca = agora - inicioNamoro;
 
-
         const dias = Math.floor(
             diferenca / (1000 * 60 * 60 * 24)
         );
-
 
         const horas = Math.floor(
             (diferenca / (1000 * 60 * 60)) % 24
         );
 
-
         const minutos = Math.floor(
             (diferenca / (1000 * 60)) % 60
         );
 
-
         const segundos = Math.floor(
             (diferenca / 1000) % 60
         );
-
 
         tempo.innerHTML = `
 
@@ -136,16 +118,13 @@ function iniciarContador() {
 
     }, 1000);
 
-
-    // DEPOIS DE 8 SEGUNDOS VAI PARA A TELA FINAL
-
     setTimeout(() => {
 
         clearInterval(contadorAtual);
 
-        contador.style.display = "none";
+        contador.classList.add("oculto");
 
-        final.style.display = "flex";
+        final.classList.remove("oculto");
 
         escreverFinal();
 
@@ -154,9 +133,6 @@ function iniciarContador() {
     }, 8000);
 
 }
-
-
-// TEXTO FINAL
 
 function escreverFinal() {
 
@@ -168,13 +144,11 @@ function escreverFinal() {
 
     let i = 0;
 
-
     const escrever = setInterval(() => {
 
         titulo.innerHTML += texto[i];
 
         i++;
-
 
         if (i >= texto.length) {
 
@@ -188,9 +162,6 @@ function escreverFinal() {
 
 }
 
-
-// ANIMAÇÃO DA MENSAGEM FINAL
-
 function animarMensagem() {
 
     const mensagem = document.querySelector(".mensagemFinal p");
@@ -198,7 +169,6 @@ function animarMensagem() {
     mensagem.style.opacity = "0";
 
     mensagem.style.transform = "translateY(30px)";
-
 
     setTimeout(() => {
 
@@ -212,9 +182,6 @@ function animarMensagem() {
 
 }
 
-
-// CORAÇÕES
-
 function iniciarCoracoes() {
 
     setInterval(() => {
@@ -225,17 +192,13 @@ function iniciarCoracoes() {
 
         coracao.classList.add("coracao");
 
-
         coracao.style.left =
             Math.random() * 100 + "vw";
-
 
         coracao.style.animationDuration =
             (Math.random() * 3 + 3) + "s";
 
-
         coracoes.appendChild(coracao);
-
 
         setTimeout(() => {
 
@@ -243,16 +206,18 @@ function iniciarCoracoes() {
 
         }, 6000);
 
-
     }, 300);
 
 }
 
-
-// BOTÃO RECOMEÇAR
-
 reiniciar.addEventListener("click", () => {
 
-    location.reload();
+    final.classList.add("oculto");
+
+    document.getElementById("inicio").classList.remove("oculto");
+
+    foto = 1;
+
+    fotoAtual.src = "imagem/foto1.jpg";
 
 });
