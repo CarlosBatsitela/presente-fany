@@ -105,15 +105,10 @@ function iniciarContador() {
         );
 
         tempo.innerHTML = `
-
-        ${dias} dias ❤️<br>
-
-        ${horas} horas<br>
-
-        ${minutos} minutos<br>
-
-        ${segundos} segundos
-
+            ${dias} dias ❤️<br>
+            ${horas} horas<br>
+            ${minutos} minutos<br>
+            ${segundos} segundos
         `;
 
     }, 1000);
